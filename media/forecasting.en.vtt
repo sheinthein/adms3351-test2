@@ -1,0 +1,114 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.060
+A campus café forecasts how many iced
+lattes it will sell each week, and every
+
+00:00:05.060 --> 00:00:07.560
+single week, the forecast comes in too
+low.
+
+00:00:08.180 --> 00:00:11.040
+Is that just bad luck, or is something
+wrong with the forecast?
+
+00:00:11.900 --> 00:00:12.860
+Pause and decide.
+
+00:00:13.960 --> 00:00:16.160
+The café uses exponential smoothing.
+
+00:00:16.820 --> 00:00:20.960
+The new forecast equals the old forecast,
+plus alpha times the last error.
+
+00:00:21.660 --> 00:00:23.160
+Alpha is the smoothing constant.
+
+00:00:23.960 --> 00:00:28.180
+Here it is 0.5, so each new forecast
+closes half of the gap.
+
+00:00:28.740 --> 00:00:32.660
+In week one, the forecast was 40, and the
+café sold 48.
+
+00:00:33.460 --> 00:00:34.120
+The error is 8.
+
+00:00:34.740 --> 00:00:37.060
+Half of 8 is 4, so the next forecast is
+44.
+
+00:00:37.960 --> 00:00:39.120
+But sales climbed to 52.
+
+00:00:39.980 --> 00:00:40.780
+The error is 8 again.
+
+00:00:41.520 --> 00:00:44.520
+Each week the forecast steps up by 4, and
+so do sales.
+
+00:00:45.380 --> 00:00:46.760
+The forecast never catches up.
+
+00:00:47.560 --> 00:00:48.600
+Now let's measure it.
+
+00:00:49.420 --> 00:00:53.400
+The mean absolute deviation, or MAD, is
+the average size of the errors.
+
+00:00:54.080 --> 00:00:57.820
+Five errors of 8 give a MAD of 8, but MAD
+ignores direction.
+
+00:00:58.740 --> 00:01:03.220
+A forecast that is 8 too low, then 8 too
+high, has exactly the same MAD.
+
+00:01:04.020 --> 00:01:06.880
+To see direction, add up the errors and
+keep their signs.
+
+00:01:07.740 --> 00:01:09.680
+Five errors of plus 8 add up to 40.
+
+00:01:10.440 --> 00:01:12.580
+The tracking signal divides that sum by
+MAD.
+
+00:01:13.300 --> 00:01:14.820
+40 divided by 8 is 5.
+
+00:01:15.620 --> 00:01:19.120
+The control limits are plus and minus 4,
+so 5 is out of bounds.
+
+00:01:19.940 --> 00:01:21.080
+This forecast is biased.
+
+00:01:21.820 --> 00:01:23.920
+Simple smoothing lags behind a trend.
+
+00:01:24.820 --> 00:01:27.740
+For the forecast that swings both ways,
+the errors cancel.
+
+00:01:28.660 --> 00:01:31.320
+The sum is 8, and the tracking signal is
+only 1.
+
+00:01:32.240 --> 00:01:34.300
+So MAD tells you how big the errors are.
+
+00:01:34.860 --> 00:01:37.240
+The tracking signal tells you whether they
+lean one way.
+
+00:01:37.860 --> 00:01:39.640
+When it leaves the limits, fix the model.
+
+00:01:40.780 --> 00:01:42.000
+Raise alpha or add a trend.

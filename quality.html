@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Why a process with a good Cp can still fail, what Cpk adds, and how the gap between them tells you what to fix.">
+  <title>Process Capability | ADMS 3351 Learning Resources</title>
+  <link rel="stylesheet" href="education.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+  <script src="player.js" defer></script>
+  <script src="lab-quality.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-width header-inner">
+      <a class="site-brand" href="https://www.yorku.ca/laps/snack/">
+        <span class="site-brand-mark">
+          <img src="brand/snack-plot-point.webp" alt="SNACK" width="1774" height="887">
+        </span>
+      </a>
+      <nav aria-label="Site">
+        <a href="index.html">All lessons</a>
+        <a href="#lesson">Video</a>
+        <a href="#practice">Practice</a>
+        <a href="#support">Get support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-width" id="main" tabindex="-1">
+    <section id="lesson" aria-labelledby="lesson-title">
+      <p class="crumbs"><a href="index.html">← Term Test 2 review</a><span>Chapter 10 · Cp and Cpk</span></p>
+      <div class="lesson-intro">
+        <h1 id="lesson-title">Process Capability</h1>
+        <p class="course">ADMS 3351 <span>Operations Management</span></p>
+        <p class="intro-copy">A car can be narrower than the garage door and still scrape the wall. Use a bakery’s cookie weights to see why capability takes two numbers, and what the gap between them tells you to fix.</p>
+      </div>
+
+      <div class="lesson-grid">
+        <div class="watch">
+          <div class="player">
+            <button type="button" class="video-cover" id="video-cover" hidden>
+              <img src="media/quality-poster.png" alt="" width="1280" height="720">
+              <span>Play video</span>
+            </button>
+            <video id="lesson-video" controls playsinline preload="none"
+              width="1920" height="1080" poster="media/quality-poster.png" aria-label="Process Capability video lesson">
+              <source src="media/quality.mp4" type="video/mp4">
+              <track kind="captions" src="media/quality.en.vtt" srclang="en" label="English">
+              Your browser can open the <a href="media/quality.mp4">Process Capability MP4</a> directly.
+            </video>
+          </div>
+          <div class="video-meta">
+            <p><strong>Video lesson</strong><span>1:59</span><span>English captions</span></p>
+            <a href="media/quality.mp4" download>Download MP4</a>
+          </div>
+          <p class="video-error" id="video-error" role="status" hidden>The video couldn’t play here. <a href="media/quality.mp4" download>Download the MP4</a> or read the transcript below.</p>
+          <details class="disclosure transcript" id="transcript">
+            <summary>Read the video transcript</summary>
+            <div class="transcript-copy">
+<h2>The narrow garage</h2>
+<p>You are parking a car in a narrow garage. The car is narrower than the door, so it fits. But park too far to one side, and you still scrape the wall. Process capability works the same way, and it takes two numbers to see it.</p>
+<h2>The cookie specs</h2>
+<p>A bakery makes cookies for the campus café. Every cookie should weigh between 94 and 106 grams. Those are the lower and upper specification limits. The standard deviation is 1.5 grams, and right now the average cookie weighs 103 grams. Is this process capable? Pause, and decide.</p>
+<h2>Cp: compare the widths</h2>
+<p>Start with Cp. It compares the width of the specs to the width of the process. The specs are 12 grams wide. The process spread is 6 standard deviations, which is 9 grams. 12 divided by 9 is 1.33. That meets the usual target. The car is narrower than the garage.</p>
+<h2>Where is the centre?</h2>
+<p>But Cp never asks where the process is centred. The average is 103, not 100, so the heavy tail spills past the upper limit.</p>
+<h2>Cpk: check the centre</h2>
+<p>Cpk checks the centre. Measure from the average to each limit, then divide by three standard deviations, which is 4.5 grams. On the upper side, 106 minus 103 is 3. 3 divided by 4.5 is 0.67. On the lower side, the distance is 9. 9 divided by 4.5 is 2. Cpk is the smaller result: 0.67. The process is not capable.</p>
+<h2>What to fix</h2>
+<p>The gap between the two numbers tells you what to fix. Cp says the spread is fine. Cpk says the centre is off. So leave the oven alone. Move the average back to 100 grams, and Cpk rises to 1.33, the same as Cp.</p>
+<h2>What to remember</h2>
+<p>Cp asks, could it fit? Cpk asks, does it fit right now?</p>
+            </div>
+          </details>
+        </div>
+
+        <aside class="lesson-sidebar" aria-label="Lesson chapters and study support">
+          <section class="chapters" aria-labelledby="chapter-heading">
+            <h2 id="chapter-heading">In this video</h2>
+            <ol>
+              <li><button type="button" data-start="0" aria-current="true"><span>The narrow garage</span><span class="time">0:00</span></button></li>
+              <li><button type="button" data-start="14.28"><span>The cookie specs</span><span class="time">0:14</span></button></li>
+              <li><button type="button" data-start="34.52"><span>Cp: compare the widths</span><span class="time">0:34</span></button></li>
+              <li><button type="button" data-start="53.1"><span>Where is the centre?</span><span class="time">0:53</span></button></li>
+              <li><button type="button" data-start="63.92"><span>Cpk: check the centre</span><span class="time">1:03</span></button></li>
+              <li><button type="button" data-start="91.06"><span>What to fix</span><span class="time">1:31</span></button></li>
+              <li><button type="button" data-start="107.44"><span>What to remember</span><span class="time">1:47</span></button></li>
+            </ol>
+          </section>
+          <section class="quick-support" aria-labelledby="quick-support-heading">
+            <h2 id="quick-support-heading">Study with a peer</h2>
+            <a href="https://www.yorku.ca/laps/snack/drop-in-support/">SNACK drop-in tutoring</a>
+            <a href="https://www.yorku.ca/laps/support/pass-program/">PASS group study</a>
+          </section>
+        </aside>
+      </div>
+
+      <div class="key-section">
+        <div class="key-idea reveal">
+          <p class="label">The idea to keep</p>
+          <blockquote>C<sub>p</sub> asks whether the process could fit. C<sub>pk</sub> asks whether it fits right now.</blockquote>
+          <p>When C<sub>p</sub> is fine and C<sub>pk</sub> is low, the spread is good and the mean is off-centre. Re-centre the process before you spend money reducing variation.</p>
+        </div>
+        <div class="formula-sheet reveal" style="--delay: .08s">
+          <p class="label">For your formula sheet</p>
+          <dl>
+            <div><dt>Capability, ignoring the centre</dt><dd>C<sub>p</sub> = (USL − LSL) ÷ 6σ</dd></div>
+            <div><dt>Capability, at the current mean</dt><dd>C<sub>pk</sub> = min[(USL − x̄) ÷ 3σ, (x̄ − LSL) ÷ 3σ]</dd></div>
+            <div><dt>Usual target</dt><dd>1.33 or higher</dd></div>
+            <div><dt>When centred</dt><dd>C<sub>pk</sub> = C<sub>p</sub></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice-section" id="practice" aria-labelledby="practice-title">
+      <div class="section-heading reveal">
+        <h2 id="practice-title">Check your understanding</h2>
+        <p>Answer one question, then move the process around yourself.</p>
+      </div>
+      <div class="practice-question reveal" data-quiz>
+        <h3>Capable or not?</h3>
+        <p>A filling line has LSL = 20 mL, USL = 32 mL, a mean of 23 mL and a standard deviation of 1 mL. The target is 1.33. What do you conclude?</p>
+        <ul class="quiz-options">
+          <li><button type="button" data-key="A" aria-pressed="false" data-correct data-why="Cp = 12 ÷ 6 = 2.00, so the spread fits easily. Cpk = min(9 ÷ 3, 3 ÷ 3) = 1.00, which is under 1.33 because the mean sits close to the lower limit.">Cp = 2.00 and Cpk = 1.00: not capable until it is re-centred</button></li>
+          <li><button type="button" data-key="B" aria-pressed="false" data-why="Cp ignores where the mean is. Check Cpk: the mean is only 3 mL from the lower limit, and 3 ÷ 3 = 1.00.">Cp = 2.00, so the process is capable</button></li>
+          <li><button type="button" data-key="C" aria-pressed="false" data-why="Cpk takes the smaller of the two sides. The upper side gives 3.00, and the lower side gives 1.00.">Cp = 2.00 and Cpk = 3.00: capable</button></li>
+          <li><button type="button" data-key="D" aria-pressed="false" data-why="Cp divides the full spec width, 12 mL, by six standard deviations, 6 mL. That is 2.00, so the spread is not the problem.">Cp = 1.00 and Cpk = 1.00: reduce the variation</button></li>
+        </ul>
+        <p class="quiz-feedback" role="status"></p>
+        <details class="disclosure answer">
+          <summary>Show the worked answer</summary>
+          <p><strong>C<sub>p</sub> = (32 − 20) ÷ (6 × 1) = 2.00.</strong> C<sub>pk</sub> = min[(32 − 23) ÷ 3, (23 − 20) ÷ 3] = min(3.00, 1.00) = 1.00. The spread fits with room to spare, but the mean is too close to the lower limit, so the process misses the 1.33 target until it is re-centred near 26 mL.</p>
+        </details>
+      </div>
+      <section class="lab reveal" id="capability-lab" aria-labelledby="capability-lab-title">
+        <h3 id="capability-lab-title">Try it: move the process</h3>
+        <p class="lab-lede">The cookie limits stay at 94 g and 106 g. Shift the mean, tighten or loosen the spread, and see which number reacts.</p>
+        <div class="lab-body">
+          <svg viewBox="0 0 640 262" role="img" aria-label="Cookie weight distribution between the specification limits">
+            <path class="axis" d="M40 232H610"/>
+            <path data-tails fill="#ff9e8f" opacity=".8" d=""/>
+            <path data-curve fill="none" stroke="#ffe17d" stroke-width="2.5" stroke-linejoin="round" d=""/>
+            <line data-mean-line y1="28" y2="232" stroke="#ffe17d" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+            <path d="M182.5 20V232M467.5 20V232" stroke="#ff9e8f" stroke-width="2.5" stroke-linecap="round"/>
+            <text x="182.5" y="14" text-anchor="middle" font-size="17" style="fill:#ff9e8f">LSL 94</text>
+            <text x="467.5" y="14" text-anchor="middle" font-size="17" style="fill:#ff9e8f">USL 106</text>
+            <text class="tick" x="182.5" y="252" text-anchor="middle">94</text>
+            <text class="tick" x="325" y="252" text-anchor="middle">100</text>
+            <text class="tick" x="467.5" y="252" text-anchor="middle">106</text>
+            <text class="tick" x="610" y="252" text-anchor="end">grams</text>
+          </svg>
+          <div class="lab-controls">
+            <label>Process mean <strong data-out="mean">103.0 g</strong>
+              <input type="range" data-input="mean" min="95" max="105" step="0.5" value="103">
+            </label>
+            <label>Standard deviation <strong data-out="sigma">1.5 g</strong>
+              <input type="range" data-input="sigma" min="0.8" max="3" step="0.1" value="1.5">
+            </label>
+            <dl class="lab-readout">
+              <div><dt>C<sub>p</sub></dt><dd data-out="cp">1.33</dd></div>
+              <div><dt>C<sub>pk</sub></dt><dd data-out="cpk">0.67</dd></div>
+              <div><dt>Outside the limits</dt><dd data-out="outside">2.28%</dd></div>
+            </dl>
+          </div>
+        </div>
+        <p class="lab-verdict" role="status"></p>
+      </section>
+    </section>
+
+    <nav class="lesson-nav reveal" aria-label="More Test 2 lessons">
+      <a href="waiting-lines.html"><span>← Previous lesson</span><strong>Waiting Lines</strong></a>
+      
+    </nav>
+
+    <section class="support-section" id="support" aria-labelledby="support-title">
+      <div class="section-heading reveal">
+        <h2 id="support-title">Get help with Operations Management</h2>
+        <p>Bring a practice question to a peer tutor or work through the topic with classmates.</p>
+      </div>
+      <div class="support-grid">
+        <article class="support-option reveal">
+          <h3>SNACK</h3>
+          <p class="support-name">Student Numeracy Assistance Centre at Keele</p>
+          <p>Drop in for free peer tutoring. Bring a practice problem and the step you’re stuck on.</p>
+          <a class="resource-link" href="https://www.yorku.ca/laps/snack/drop-in-support/">View SNACK drop-in hours</a>
+        </article>
+        <article class="support-option reveal" style="--delay: .08s">
+          <h3>PASS</h3>
+          <p class="support-name">Peer-Assisted Study Sessions</p>
+          <p>Join a free, peer-led group to practise course problems and prepare for tests. Look for ADMS 3351 in the schedule.</p>
+          <a class="resource-link" href="https://www.yorku.ca/laps/support/pass-program/">Find an ADMS 3351 PASS session</a>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="site-width">
+      <span>ADMS 3351 · Operations Management Learning Resources</span>
+      <a href="index.html">All Test 2 lessons</a>
+    </div>
+  </footer>
+</body>
+</html>

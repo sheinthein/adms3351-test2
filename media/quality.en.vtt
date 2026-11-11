@@ -1,0 +1,130 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.160
+You are parking a car in a narrow garage.
+
+00:00:02.960 --> 00:00:05.240
+The car is narrower than the door, so it
+fits.
+
+00:00:06.000 --> 00:00:08.920
+But park too far to one side, and you
+still scrape the wall.
+
+00:00:09.480 --> 00:00:13.440
+Process capability works the same way, and
+it takes two numbers to see it.
+
+00:00:14.280 --> 00:00:16.380
+A bakery makes cookies for the campus
+café.
+
+00:00:17.100 --> 00:00:20.220
+Every cookie should weigh between 94 and
+106 grams.
+
+00:00:21.000 --> 00:00:23.620
+Those are the lower and upper
+specification limits.
+
+00:00:24.380 --> 00:00:29.560
+The standard deviation is 1.5 grams, and
+right now the average cookie weighs 103
+
+00:00:29.560 --> 00:00:30.120
+grams.
+
+00:00:30.820 --> 00:00:31.920
+Is this process capable?
+
+00:00:32.520 --> 00:00:33.500
+Pause and decide.
+
+00:00:34.520 --> 00:00:38.320
+Start with Cp. It compares the width of
+the specs to the width of the process.
+
+00:00:39.080 --> 00:00:40.800
+The specs are 12 grams wide.
+
+00:00:41.500 --> 00:00:43.680
+The process spread is 6 standard
+deviations,
+
+00:00:44.500 --> 00:00:45.360
+which is 9 grams.
+
+00:00:46.220 --> 00:00:48.620
+12 divided by 9 is 1.33.
+
+00:00:49.420 --> 00:00:50.960
+That meets the usual target.
+
+00:00:51.580 --> 00:00:53.100
+The car is narrower than the garage.
+
+00:00:53.100 --> 00:00:56.800
+But Cp never asks where the process is
+centred.
+
+00:00:57.540 --> 00:00:58.540
+The average is 103,
+
+00:00:59.440 --> 00:01:03.100
+not 100, so the heavy tail spills past the
+upper limit.
+
+00:01:03.920 --> 00:01:05.380
+Cpk checks the centre.
+
+00:01:05.840 --> 00:01:09.620
+Measure from the average to each limit,
+then divide by three standard deviations,
+
+00:01:10.280 --> 00:01:11.540
+which is 4.5 grams.
+
+00:01:12.320 --> 00:01:15.180
+On the upper side, 106 minus 103 is 3.
+
+00:01:15.820 --> 00:01:18.640
+3 divided by 4.5 is 0.67.
+
+00:01:18.640 --> 00:01:21.260
+On the lower side, the distance is 9.
+
+00:01:21.780 --> 00:01:24.040
+9 divided by 4.5 is 2.
+
+00:01:24.540 --> 00:01:26.280
+Cpk is the smaller result.
+
+00:01:27.100 --> 00:01:28.020
+0.67.
+
+00:01:28.820 --> 00:01:30.020
+The process is not capable.
+
+00:01:31.060 --> 00:01:33.280
+The gap between the two numbers tells you
+what to fix.
+
+00:01:34.180 --> 00:01:35.380
+Cp says the spread is fine.
+
+00:01:36.220 --> 00:01:39.380
+Cpk says the centre is off, so leave the
+oven alone.
+
+00:01:40.240 --> 00:01:45.860
+Move the average back to 100 grams, and
+Cpk rises to 1.33, the
+
+00:01:45.860 --> 00:01:46.480
+same as Cp.
+
+00:01:47.440 --> 00:01:48.960
+Cp asks, could it fit?
+
+00:01:49.560 --> 00:01:51.320
+Cpk asks, does it fit right now?

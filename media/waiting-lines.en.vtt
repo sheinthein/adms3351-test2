@@ -1,0 +1,142 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.120
+Imagine two counters at a campus coffee
+shop.
+
+00:00:03.280 --> 00:00:05.750
+Both take four minutes per customer on
+average.
+
+00:00:06.220 --> 00:00:09.650
+At one counter, some orders are quick and
+others take longer.
+
+00:00:10.220 --> 00:00:13.250
+At the other, every order takes exactly
+four minutes.
+
+00:00:13.940 --> 00:00:15.210
+Which line would you join?
+
+00:00:15.940 --> 00:00:19.360
+In Operations Management, this is a
+waiting lines problem.
+
+00:00:19.740 --> 00:00:23.420
+Let's work through it using a bank teller
+and a self-service machine.
+
+00:00:24.080 --> 00:00:28.380
+Customers arrive randomly at the bank at
+an average rate of twelve per hour.
+
+00:00:28.680 --> 00:00:33.350
+Both the teller and the machine serve
+fifteen customers per hour on average.
+
+00:00:33.680 --> 00:00:35.330
+The teller’s service time varies.
+
+00:00:35.780 --> 00:00:38.560
+The machine takes exactly four minutes
+every time.
+
+00:00:39.240 --> 00:00:40.640
+Let’s follow one customer.
+
+00:00:41.200 --> 00:00:43.830
+Imagine they join each line at minute
+three.
+
+00:00:44.140 --> 00:00:47.160
+The machine finishes serving the previous
+customer at minute four,
+
+00:00:47.180 --> 00:00:48.880
+so they wait one minute.
+
+00:00:49.280 --> 00:00:50.740
+The teller finishes at minute six,
+
+00:00:50.780 --> 00:00:52.470
+so they wait three minutes.
+
+00:00:52.880 --> 00:00:56.740
+That’s one example of how a long
+transaction can hold up the line.
+
+00:00:57.040 --> 00:00:59.480
+Now let’s calculate the long-run averages.
+
+00:01:00.100 --> 00:01:02.160
+First, find utilization.
+
+00:01:02.640 --> 00:01:05.100
+That’s the fraction of time each server is
+busy.
+
+00:01:05.420 --> 00:01:08.180
+Divide twelve by fifteen to get zero point
+eight.
+
+00:01:08.600 --> 00:01:11.180
+Both servers are busy eighty percent of
+the time.
+
+00:01:11.900 --> 00:01:15.190
+For the teller, the average wait in line
+is called W sub Q.
+
+00:01:15.520 --> 00:01:18.270
+Start with the gap between the service
+rate and the arrival rate.
+
+00:01:18.920 --> 00:01:20.720
+Fifteen minus twelve is three.
+
+00:01:21.240 --> 00:01:23.550
+Multiply that gap by the service rate,
+fifteen.
+
+00:01:24.200 --> 00:01:27.270
+Then divide the arrival rate, twelve, by
+that product.
+
+00:01:27.840 --> 00:01:29.170
+The result is in hours.
+
+00:01:29.820 --> 00:01:32.300
+Multiply by sixty to get sixteen minutes.
+
+00:01:32.980 --> 00:01:37.040
+For the machine, the formula has an extra
+factor of two in the denominator.
+
+00:01:37.640 --> 00:01:39.350
+So divide sixteen by two.
+
+00:01:39.760 --> 00:01:41.540
+The average wait is eight minutes.
+
+00:01:42.000 --> 00:01:47.090
+In this example, keeping service time
+constant cuts the average wait in line in
+half.
+
+00:01:47.560 --> 00:01:49.660
+Time in line ends when service begins.
+
+00:01:50.620 --> 00:01:52.230
+Time in the system includes service.
+
+00:01:52.960 --> 00:01:55.990
+Add four minutes of average service time
+to each wait.
+
+00:01:56.200 --> 00:01:58.410
+That gives twenty minutes total for the
+teller
+
+00:01:58.440 --> 00:02:00.500
+and twelve minutes total for the machine.

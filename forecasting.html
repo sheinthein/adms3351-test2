@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Why a forecast with a small MAD can still be biased, how exponential smoothing lags a trend, and how the tracking signal catches it.">
+  <title>Forecasting | ADMS 3351 Learning Resources</title>
+  <link rel="stylesheet" href="education.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+  <script src="player.js" defer></script>
+  <script src="lab-forecasting.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-width header-inner">
+      <a class="site-brand" href="https://www.yorku.ca/laps/snack/">
+        <span class="site-brand-mark">
+          <img src="brand/snack-plot-point.webp" alt="SNACK" width="1774" height="887">
+        </span>
+      </a>
+      <nav aria-label="Site">
+        <a href="index.html">All lessons</a>
+        <a href="#lesson">Video</a>
+        <a href="#practice">Practice</a>
+        <a href="#support">Get support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-width" id="main" tabindex="-1">
+    <section id="lesson" aria-labelledby="lesson-title">
+      <p class="crumbs"><a href="index.html">← Term Test 2 review</a><span>Chapter 3 · Tracking signal</span></p>
+      <div class="lesson-intro">
+        <h1 id="lesson-title">Forecasting</h1>
+        <p class="course">ADMS 3351 <span>Operations Management</span></p>
+        <p class="intro-copy">A forecast can miss by the same small amount every week and still be a bad forecast. Follow a café’s iced-latte forecast, then see what MAD measures and what only the tracking signal can catch.</p>
+      </div>
+
+      <div class="lesson-grid">
+        <div class="watch">
+          <div class="player">
+            <button type="button" class="video-cover" id="video-cover" hidden>
+              <img src="media/forecasting-poster.png" alt="" width="1280" height="720">
+              <span>Play video</span>
+            </button>
+            <video id="lesson-video" controls playsinline preload="none"
+              width="1920" height="1080" poster="media/forecasting-poster.png" aria-label="Forecasting video lesson">
+              <source src="media/forecasting.mp4" type="video/mp4">
+              <track kind="captions" src="media/forecasting.en.vtt" srclang="en" label="English">
+              Your browser can open the <a href="media/forecasting.mp4">Forecasting MP4</a> directly.
+            </video>
+          </div>
+          <div class="video-meta">
+            <p><strong>Video lesson</strong><span>1:50</span><span>English captions</span></p>
+            <a href="media/forecasting.mp4" download>Download MP4</a>
+          </div>
+          <p class="video-error" id="video-error" role="status" hidden>The video couldn’t play here. <a href="media/forecasting.mp4" download>Download the MP4</a> or read the transcript below.</p>
+          <details class="disclosure transcript" id="transcript">
+            <summary>Read the video transcript</summary>
+            <div class="transcript-copy">
+<h2>The forecast that’s always low</h2>
+<p>A campus café forecasts how many iced lattes it will sell each week. And every single week, the forecast comes in too low. Is that just bad luck, or is something wrong with the forecast? Pause, and decide.</p>
+<h2>Exponential smoothing</h2>
+<p>The café uses exponential smoothing. The new forecast equals the old forecast, plus alpha times the last error. Alpha is the smoothing constant. Here it is 0.5, so each new forecast closes half of the gap.</p>
+<h2>Week by week</h2>
+<p>In week one, the forecast was 40, and the café sold 48. The error is 8. Half of 8 is 4, so the next forecast is 44. But sales climbed to 52. The error is 8 again. Each week the forecast steps up by 4, and so do sales. The forecast never catches up.</p>
+<h2>MAD: how big are the errors?</h2>
+<p>Now let’s measure it. The mean absolute deviation, or MAD, is the average size of the errors. Five errors of 8 give a MAD of 8. But MAD ignores direction. A forecast that is 8 too low, then 8 too high, has exactly the same MAD.</p>
+<h2>Tracking signal: which way do they lean?</h2>
+<p>To see direction, add up the errors and keep their signs. Five errors of plus 8 add up to 40. The tracking signal divides that sum by MAD. 40 divided by 8 is 5. The control limits are plus and minus 4, so 5 is out of bounds. This forecast is biased. Simple smoothing lags behind a trend. For the forecast that swings both ways, the errors cancel. The sum is 8, and the tracking signal is only 1.</p>
+<h2>What to remember</h2>
+<p>MAD tells you how big the errors are. The tracking signal tells you whether they lean one way. When it leaves the limits, fix the model. Raise alpha, or add a trend.</p>
+            </div>
+          </details>
+        </div>
+
+        <aside class="lesson-sidebar" aria-label="Lesson chapters and study support">
+          <section class="chapters" aria-labelledby="chapter-heading">
+            <h2 id="chapter-heading">In this video</h2>
+            <ol>
+              <li><button type="button" data-start="0" aria-current="true"><span>The forecast that’s always low</span><span class="time">0:00</span></button></li>
+              <li><button type="button" data-start="13.96"><span>Exponential smoothing</span><span class="time">0:13</span></button></li>
+              <li><button type="button" data-start="28.74"><span>Week by week</span><span class="time">0:28</span></button></li>
+              <li><button type="button" data-start="47.56"><span>MAD: how big</span><span class="time">0:47</span></button></li>
+              <li><button type="button" data-start="64.02"><span>Tracking signal: which way</span><span class="time">1:04</span></button></li>
+              <li><button type="button" data-start="92.24"><span>What to remember</span><span class="time">1:32</span></button></li>
+            </ol>
+          </section>
+          <section class="quick-support" aria-labelledby="quick-support-heading">
+            <h2 id="quick-support-heading">Study with a peer</h2>
+            <a href="https://www.yorku.ca/laps/snack/drop-in-support/">SNACK drop-in tutoring</a>
+            <a href="https://www.yorku.ca/laps/support/pass-program/">PASS group study</a>
+          </section>
+        </aside>
+      </div>
+
+      <div class="key-section">
+        <div class="key-idea reveal">
+          <p class="label">The idea to keep</p>
+          <blockquote>MAD tells you how big the errors are. The tracking signal tells you whether they lean one way.</blockquote>
+          <p>Two forecasts can share the same MAD. Only the one whose errors pile up on one side is biased, and that is the one to fix.</p>
+        </div>
+        <div class="formula-sheet reveal" style="--delay: .08s">
+          <p class="label">For your formula sheet</p>
+          <dl>
+            <div><dt>Exponential smoothing</dt><dd>F<sub>t+1</sub> = F<sub>t</sub> + α(A<sub>t</sub> − F<sub>t</sub>)</dd></div>
+            <div><dt>Forecast error</dt><dd>A<sub>t</sub> − F<sub>t</sub></dd></div>
+            <div><dt>MAD</dt><dd>Σ|error| ÷ n</dd></div>
+            <div><dt>Tracking signal</dt><dd>Σ error ÷ MAD (the sum is the RSFE)</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice-section" id="practice" aria-labelledby="practice-title">
+      <div class="section-heading reveal">
+        <h2 id="practice-title">Check your understanding</h2>
+        <p>Answer one question, then experiment with the smoothing constant yourself.</p>
+      </div>
+      <div class="practice-question reveal" data-quiz>
+        <h3>Is this forecast biased?</h3>
+        <p>Over five weeks a forecast’s errors (actual − forecast) are −6, −6, −6, −6 and −6. The control limits are ±4. What do MAD and the tracking signal tell you?</p>
+        <ul class="quiz-options">
+          <li><button type="button" data-key="A" aria-pressed="false" data-correct data-why="The errors average 6 in size, they sum to −30, and −30 ÷ 6 = −5. That is outside ±4, and negative errors mean the forecast sits above actual sales.">MAD = 6 and tracking signal = −5: biased, forecasting too high</button></li>
+          <li><button type="button" data-key="B" aria-pressed="false" data-why="The errors all have the same sign, so they add up to −30 instead of cancelling. Divide that sum by MAD.">MAD = 6 and tracking signal = 0: in control</button></li>
+          <li><button type="button" data-key="C" aria-pressed="false" data-why="MAD uses absolute values, so it can’t be negative. Keep the signs only for the sum of errors, which is −30.">MAD = −6 and tracking signal = 5: biased, forecasting too low</button></li>
+          <li><button type="button" data-key="D" aria-pressed="false" data-why="MAD is an average. Divide the total absolute error, 30, by the five weeks to get 6.">MAD = 30 and tracking signal = −1: in control</button></li>
+        </ul>
+        <p class="quiz-feedback" role="status"></p>
+        <details class="disclosure answer">
+          <summary>Show the worked answer</summary>
+          <p><strong>MAD = 30 ÷ 5 = 6.</strong> The sum of errors is −30, so the tracking signal is −30 ÷ 6 = −5. That is outside ±4, so the forecast is biased. The errors are negative, which means actual sales keep landing below the forecast.</p>
+        </details>
+      </div>
+      <section class="lab reveal" id="forecast-lab" aria-labelledby="forecast-lab-title">
+        <h3 id="forecast-lab-title">Try it: change alpha</h3>
+        <p class="lab-lede">Eight weeks of café sales, forecast with exponential smoothing. Move alpha, switch the demand pattern, and watch what the tracking signal does.</p>
+        <div class="lab-body">
+          <svg data-chart viewBox="0 0 640 262" role="img" aria-label="Sales and forecast chart"></svg>
+          <div class="lab-controls">
+            <label>Smoothing constant, alpha <strong data-out="alpha">0.5</strong>
+              <input type="range" min="0.1" max="0.9" step="0.1" value="0.5">
+            </label>
+            <div class="lab-toggle" role="group" aria-label="Demand pattern">
+              <button type="button" data-pattern="trend" aria-pressed="true">Rising sales</button>
+              <button type="button" data-pattern="steady" aria-pressed="false">Steady sales</button>
+            </div>
+            <dl class="lab-readout">
+              <div><dt>MAD</dt><dd data-out="mad">8.00</dd></div>
+              <div><dt>Sum of errors</dt><dd data-out="sum">+64.00</dd></div>
+              <div><dt>Tracking signal</dt><dd data-out="signal">+8.00</dd></div>
+            </dl>
+            <div class="lab-gauge" aria-hidden="true">
+              <div class="track"></div><div class="marker"></div>
+              <span style="left: 16.66%">−4</span><span style="left: 50%">0</span><span style="left: 83.33%">+4</span>
+            </div>
+          </div>
+        </div>
+        <p class="lab-verdict" role="status"></p>
+      </section>
+    </section>
+
+    <nav class="lesson-nav reveal" aria-label="More Test 2 lessons">
+      
+      <a href="waiting-lines.html"><span>Next lesson →</span><strong>Waiting Lines</strong></a>
+    </nav>
+
+    <section class="support-section" id="support" aria-labelledby="support-title">
+      <div class="section-heading reveal">
+        <h2 id="support-title">Get help with Operations Management</h2>
+        <p>Bring a practice question to a peer tutor or work through the topic with classmates.</p>
+      </div>
+      <div class="support-grid">
+        <article class="support-option reveal">
+          <h3>SNACK</h3>
+          <p class="support-name">Student Numeracy Assistance Centre at Keele</p>
+          <p>Drop in for free peer tutoring. Bring a practice problem and the step you’re stuck on.</p>
+          <a class="resource-link" href="https://www.yorku.ca/laps/snack/drop-in-support/">View SNACK drop-in hours</a>
+        </article>
+        <article class="support-option reveal" style="--delay: .08s">
+          <h3>PASS</h3>
+          <p class="support-name">Peer-Assisted Study Sessions</p>
+          <p>Join a free, peer-led group to practise course problems and prepare for tests. Look for ADMS 3351 in the schedule.</p>
+          <a class="resource-link" href="https://www.yorku.ca/laps/support/pass-program/">Find an ADMS 3351 PASS session</a>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="site-width">
+      <span>ADMS 3351 · Operations Management Learning Resources</span>
+      <a href="index.html">All Test 2 lessons</a>
+    </div>
+  </footer>
+</body>
+</html>
