@@ -327,3 +327,47 @@ img { max-width: 100%; height: auto; }
   .keylogo span { width: 1.7rem; height: 1.7rem; font-size: 1rem; }
   .spacebar { white-space: normal; }
 }
+
+/* Subject and course tabs */
+.tabbar { border-bottom: 1px solid var(--line); background: var(--wash); }
+.tabbar-inner { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0 2.2rem; }
+.tabgroup { display: flex; align-items: stretch; gap: .2rem; }
+.tabgroup + .tabgroup { border-left: 1px solid var(--line); padding-left: 2.2rem; }
+.tab-label { align-self: center; margin-right: .55rem; color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.tab {
+  position: relative; display: inline-flex; align-items: center; min-height: 2.9rem; padding: 0 .8rem;
+  color: var(--ink); font-weight: 700; font-size: .95rem; text-decoration: none; font-variant-numeric: tabular-nums;
+}
+.tab .tab-name { margin-left: .4em; font-weight: 500; color: var(--muted); }
+.tab::after { content: ""; position: absolute; left: .5rem; right: .5rem; bottom: -1px; height: 3px; background: var(--accent); transform: scaleX(0); transition: transform .2s ease-out; }
+.tab:hover { color: var(--accent); }
+.tab:hover::after { transform: scaleX(.6); }
+.tab[aria-current]::after { transform: scaleX(1); }
+.tab[aria-current] { color: var(--accent); }
+.tab[aria-current] .tab-name { color: var(--accent); }
+
+/* Subject and course cards */
+.course-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); gap: clamp(1.2rem, 2.6vw, 2rem); list-style: none; padding: 0; }
+.course-card a { display: flex; flex-direction: column; height: 100%; color: inherit; text-decoration: none; border-top: 3px solid var(--accent); background: var(--wash); }
+.course-keys { display: flex; gap: .45rem; padding: 1.6rem 1.25rem .4rem; }
+.course-keys span {
+  display: grid; place-items: center; width: 3.1rem; height: 3.1rem; border: 1.5px solid var(--ink); border-radius: .6rem;
+  background: var(--paper); font-weight: 750; font-size: 1.6rem; box-shadow: 0 4px 0 var(--ink);
+  transition: transform .12s ease-out, box-shadow .12s ease-out;
+}
+.course-keys span:last-child { background: var(--accent); color: var(--paper); border-color: #5c0c1c; box-shadow: 0 4px 0 #5c0c1c; }
+.course-card a:hover .course-keys span { transform: translateY(4px); box-shadow: 0 0 0 var(--ink); }
+.course-card a:hover .course-keys span:last-child { box-shadow: 0 0 0 #5c0c1c; }
+.course-keys span:nth-child(2) { transition-delay: .04s; } .course-keys span:nth-child(3) { transition-delay: .08s; } .course-keys span:nth-child(4) { transition-delay: .12s; }
+.course-card .card-body { display: flex; flex-direction: column; gap: .5rem; padding: 1rem 1.25rem 1.3rem; flex: 1; }
+.course-card .chapter { color: var(--accent); font-weight: 700; font-size: .92rem; letter-spacing: .04em; text-transform: uppercase; }
+.course-card h3 { font-size: clamp(1.45rem, 2.4vw, 1.8rem); line-height: 1.15; letter-spacing: -.02em; }
+.course-card p { color: var(--muted); }
+.course-card .arrow-link { margin-top: auto; padding-top: .45rem; color: var(--accent); }
+
+@media (max-width: 640px) {
+  .tabbar-inner { gap: 0; }
+  .tabgroup + .tabgroup { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .tabgroup { width: 100%; }
+  .tab .tab-name { display: none; }
+}

@@ -1,5 +1,7 @@
-# ADMS 3351 Term Test 2 review
+# SNACK learning resources
 
-Short blackboard lessons on forecasting, waiting lines and process capability, with self-checks and links to SNACK and PASS at York.
+Short blackboard lessons with self-checks, built for students, by students at SNACK (York University).
+
+- ADMS 3351 Operations Management: Term Test 2
 
 Live site: https://sheinthein.github.io/adms3351-test2/
