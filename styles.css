@@ -284,3 +284,46 @@ img { max-width: 100%; height: auto; }
   .lesson-nav a + a { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; text-align: left; }
   .hub-facts li { border-right: 0; margin-inline-end: 0; width: 100%; }
 }
+
+/* Keycap brand: built for students, by students. */
+.site-brand { gap: .75rem; color: var(--ink); text-decoration: none; padding-block: .35rem; }
+.keylogo { display: inline-flex; gap: .2rem; }
+.keylogo span {
+  display: inline-grid; place-items: center; width: 1.9rem; height: 1.9rem; border: 1.5px solid var(--ink); border-radius: .42rem;
+  background: var(--paper); color: var(--ink); font-weight: 750; font-size: 1.12rem; line-height: 1;
+  box-shadow: 0 3px 0 var(--ink); transition: transform .12s ease-out, box-shadow .12s ease-out;
+}
+.keylogo .k { background: var(--accent); border-color: #5c0c1c; color: var(--paper); box-shadow: 0 3px 0 #5c0c1c; }
+.site-brand:hover .keylogo span { transform: translateY(3px); box-shadow: 0 0 0 var(--ink); }
+.site-brand:hover .keylogo .k { box-shadow: 0 0 0 #5c0c1c; }
+.keylogo span:nth-child(2) { transition-delay: .04s; } .keylogo span:nth-child(3) { transition-delay: .08s; }
+.keylogo span:nth-child(4) { transition-delay: .12s; } .keylogo span:nth-child(5) { transition-delay: .16s; }
+.brand-tag { font-size: .8rem; line-height: 1.15; font-weight: 650; color: var(--muted); border-left: 1px solid var(--line); padding-left: .7rem; }
+
+.spacebar {
+  display: inline-block; padding: .55rem 1.6rem .5rem; border: 1.5px solid #6b5410; border-radius: .7rem;
+  background: var(--chalk-yellow); color: var(--ink); font-weight: 750; font-size: clamp(1.15rem, 2.6vw, 1.55rem); letter-spacing: -.01em;
+  box-shadow: 0 5px 0 #6b5410; white-space: nowrap;
+}
+.spacebar.small { padding: .3rem .95rem .28rem; font-size: .95rem; border-radius: .5rem; box-shadow: 0 3px 0 #6b5410; }
+.hero-kicker { margin-bottom: 1rem; }
+
+.made-by {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem 2.2rem; align-items: center;
+  margin-block: clamp(3rem, 6vw, 5rem) 0; padding: clamp(1.4rem, 3vw, 2rem) clamp(1.2rem, 3vw, 2rem);
+  background: var(--ink); color: var(--paper);
+}
+.made-by .spacebar { transform: rotate(-2deg); }
+.made-by h2 { font-size: clamp(1.45rem, 3vw, 2.1rem); line-height: 1.15; letter-spacing: -.02em; text-wrap: balance; }
+.made-by p:not(.spacebar) { color: #d9d3cb; margin-top: .45rem; max-width: 62ch; }
+.site-footer strong { color: var(--ink); }
+
+@media (max-width: 760px) {
+  .made-by { grid-template-columns: 1fr; }
+  .made-by .spacebar { justify-self: start; }
+}
+@media (max-width: 520px) {
+  .brand-tag { font-size: .74rem; }
+  .keylogo span { width: 1.7rem; height: 1.7rem; font-size: 1rem; }
+  .spacebar { white-space: normal; }
+}
