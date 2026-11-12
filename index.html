@@ -8,7 +8,11 @@
   <link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="education.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hall.css">
+  <script>try{var t=sessionStorage.getItem('snack-transit');if(t){sessionStorage.removeItem('snack-transit');document.documentElement.dataset.arrive=t}}catch(e){}</script>
   <script src="site.js" defer></script>
+  <script src="vendor/gsap.min.js" defer></script>
+  <script src="hall.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -19,6 +23,7 @@
         <span class="brand-tag" aria-hidden="true">Built for students,<br>by students</span>
       </a>
       <nav aria-label="Site">
+        <a href="#hall">Lecture hall</a>
         <a href="#subjects">Courses</a>
         <a href="#support">Get support</a>
       </nav>
@@ -34,14 +39,204 @@
     </div>
   </nav>
 
-  <main class="site-width" id="main" tabindex="-1">
-    <section class="hub-hero" aria-labelledby="home-title">
-      <p class="hero-kicker"><span class="spacebar small">Built for students, by students</span></p>
-      <p class="course">SNACK <span>Learning resources</span></p>
-      <h1 id="home-title">Numbers, <span class="underlined">one idea<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 6C18 2 34 9 52 5S84 3 99 6"/></svg></span> at a time</h1>
-      <p class="intro-copy">Short blackboard lessons made by student tutors at SNACK. Each one works a single example from start to finish, then lets you test yourself.</p>
-    </section>
+  <main id="main" tabindex="-1">
+    <section class="hall" id="hall" aria-labelledby="home-title">
+      <div class="camera" id="camera">
+        <svg class="shell" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="g-ceil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfc8bc"/><stop offset="1" stop-color="#ebe6dd"/></linearGradient>
+            <linearGradient id="g-left" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d8d1c5"/><stop offset="1" stop-color="#efeae2"/></linearGradient>
+            <linearGradient id="g-right" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#d8d1c5"/><stop offset="1" stop-color="#efeae2"/></linearGradient>
+            <linearGradient id="g-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fcfaf6"/><stop offset="1" stop-color="#e8e2d8"/></linearGradient>
+            <linearGradient id="g-stage" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dccaa9"/><stop offset="1" stop-color="#c2ab85"/></linearGradient>
+            <linearGradient id="g-door" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#86664a"/><stop offset="1" stop-color="#6a4f38"/></linearGradient>
+            <radialGradient id="g-pool"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+            <radialGradient id="g-shade"><stop offset="0" stop-color="#201e1b" stop-opacity=".38"/><stop offset="1" stop-color="#201e1b" stop-opacity="0"/></radialGradient>
+            <radialGradient id="g-exit"><stop offset="0" stop-color="#58c48a" stop-opacity=".5"/><stop offset="1" stop-color="#58c48a" stop-opacity="0"/></radialGradient>
+          </defs>
+          <!-- ceiling and recessed light panels -->
+          <polygon points="0,-22 1440,-22 1150,120 290,120" fill="url(#g-ceil)"/>
+          <g class="lamps" fill="#fffdf6" stroke="#d3ccc1" stroke-width="1" vector-effect="non-scaling-stroke">
+            <polygon points="200,18 620,18 623.800,30 220,30"/><polygon points="820,18 1240,18 1220,30 816.200,30"/>
+            <polygon points="256.700,52 630.900,52 634.100,62 273.300,62"/><polygon points="809.100,52 1183.300,52 1166.700,62 805.900,62"/>
+            <polygon points="313.400,86 641.800,86 644,93 325,93"/><polygon points="798.200,86 1126.600,86 1115,93 796,93"/>
+          </g>
+          <!-- side walls: acoustic panels, wood wainscot, handrail, doors -->
+          <polygon points="0,-22 290,120 290,520 0,648" fill="url(#g-left)"/>
+          <polygon points="1440,-22 1150,120 1150,520 1440,648" fill="url(#g-right)"/>
+          <polygon points="0,434 290,392 290,520 0,648" fill="#c9b591" opacity=".6"/>
+          <polygon points="1440,434 1150,392 1150,520 1440,648" fill="#c9b591" opacity=".6"/>
+          <g stroke="#cfc8bd" stroke-width="1" vector-effect="non-scaling-stroke" fill="none">
+            <path d="M60,7.800V621.700M130,41.900V590.700M200,76.100V559.800M250,100.500V537.700M1380,7.800V621.700M1310,41.900V590.700M1240,76.100V559.800M1190,100.500V537.700"/>
+          </g>
+          <path d="M0,434L290,392M1440,434L1150,392" stroke="#9d1933" stroke-width="2.500" fill="none" vector-effect="non-scaling-stroke"/>
+          <g class="wide-only">
+            <ellipse cx="240" cy="344" rx="34" ry="20" fill="url(#g-exit)"/><ellipse cx="1200" cy="344" rx="34" ry="20" fill="url(#g-exit)"/>
+            <polygon points="215,363 265,360 265,531 215,553" fill="url(#g-door)"/><polygon points="232,385 248,384 248,440 232,442" fill="#d5dedb" opacity=".75"/>
+            <polygon points="1225,363 1175,360 1175,531 1225,553" fill="url(#g-door)"/><polygon points="1208,385 1192,384 1192,440 1208,442" fill="#d5dedb" opacity=".75"/>
+            <rect x="226" y="339" width="28" height="11" rx="2" fill="#2e7d4f"/><rect x="1186" y="339" width="28" height="11" rx="2" fill="#2e7d4f"/>
+            <path d="M232,344.500H248M1192,344.500H1208" stroke="#e9f6ee" stroke-width="2" stroke-linecap="round"/>
+          </g>
+          <!-- front wall, washed by the ceiling lights -->
+          <rect x="290" y="120" width="860" height="400" fill="url(#g-wall)"/>
+          <ellipse cx="505" cy="122" rx="210" ry="58" fill="url(#g-pool)"/><ellipse cx="935" cy="122" rx="210" ry="58" fill="url(#g-pool)"/>
+          <rect x="290" y="486" width="860" height="34" fill="#c9b591" opacity=".7"/>
+          <path d="M290,120V520M1150,120V520M290,120H1150M290,486H1150" stroke="#d3ccc1" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/>
+          <rect x="530" y="131" width="380" height="10" rx="3" fill="#cfc8bd"/>
+          <g class="wide-only" transform="translate(1126 190)">
+            <circle r="12" fill="#fdfbf8" stroke="#201e1b" stroke-width="1.500"/><path d="M0,0V-7M0,0L5,3" stroke="#201e1b" stroke-width="1.500" stroke-linecap="round"/>
+          </g>
+          <!-- stage, its front lip, and the floor of the well -->
+          <polygon points="208.400,556 1231.600,556 1440,648 0,648" fill="#57504a"/>
+          <polygon points="290,520 1150,520 1231.600,556 208.400,556" fill="url(#g-stage)"/>
+          <polygon points="208.400,556 1231.600,556 1236,562 204,562" fill="#8f7a59"/>
+          <g class="wide-only">
+            <ellipse cx="408" cy="547" rx="46" ry="7" fill="url(#g-shade)"/>
+            <g transform="translate(384 482) scale(.78)">
+              <polygon points="0,10 52,0 52,84 0,84" fill="#4a3a2c"/><polygon points="52,0 60,4 60,82 52,84" fill="#35291f"/><polygon points="0,10 52,0 58,-8 -6,3" fill="#614d3b"/>
+              <path d="M40,-5C44,-22 50,-26 58,-27" fill="none" stroke="#201e1b" stroke-width="2" stroke-linecap="round"/>
+            </g>
+          </g>
+        </svg>
 
+        <div class="boards">
+          <div class="sideboard left" aria-hidden="true"><span>F<sub>t+1</sub> = F<sub>t</sub> + α(A<sub>t</sub> − F<sub>t</sub>)</span><span>TS = RSFE ÷ MAD</span><span class="smudge"></span></div>
+          <section class="board" id="board" aria-label="Lessons on the board">
+            <div class="board-content" id="board-content">
+              <p class="board-brand">
+                <span class="keylogo" aria-hidden="true"><span>S</span><span>N</span><span>A</span><span>C</span><span class="k">K</span></span>
+                <span class="board-tag">Built for students, by students</span>
+              </p>
+              <h1 id="home-title">Numbers, <span class="u">one idea<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path id="underline" pathLength="1" d="M1 6C18 2 34 9 52 5S84 3 99 6"/></svg></span> at a time</h1>
+              <p class="board-sub"><a href="adms/3351/">ADMS 3351 · Operations Management</a>. Pick a lesson and walk up to the board.</p>
+              <ul class="picks">
+                <li><a href="adms/3351/forecasting.html" data-lesson="forecasting">
+                  <svg viewBox="0 0 120 60" aria-hidden="true"><path d="M6 4V54H116"/><path class="y" d="M12 44L38 34 64 26 90 16 112 8"/><path class="c d" d="M12 50L38 42 64 34 90 24 112 16"/></svg>
+                  <strong>Forecasting</strong><span>Tracking signal · 1:51</span></a></li>
+                <li><a href="adms/3351/waiting-lines.html" data-lesson="waiting-lines">
+                  <svg viewBox="0 0 120 60" aria-hidden="true"><circle class="y" cx="14" cy="22" r="7"/><circle class="y" cx="38" cy="22" r="7"/><circle class="y" cx="62" cy="22" r="7"/><path d="M76 22H90M85 17L90 22 85 27"/><rect class="c" x="96" y="10" width="20" height="24" rx="2"/><path d="M6 50H116"/></svg>
+                  <strong>Waiting Lines</strong><span>One line or two · 2:08</span></a></li>
+                <li><a href="adms/3351/quality.html" data-lesson="quality">
+                  <svg viewBox="0 0 120 60" aria-hidden="true"><path d="M6 54H116"/><path class="c" d="M12 54C40 54 44 8 62 8S84 54 110 54"/><path class="y d" d="M24 4V54M92 4V54"/></svg>
+                  <strong>Process Capability</strong><span>C<sub>p</sub> and C<sub>pk</sub> · 2:00</span></a></li>
+              </ul>
+            </div>
+          </section>
+          <div class="sideboard right" aria-hidden="true"><span>C<sub>p</sub> = (USL − LSL) ÷ 6σ</span><span>ρ = λ ÷ μ</span><span class="smudge"></span></div>
+        </div>
+        <div class="ledge" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+
+      <!-- Tiered seating, far to near. Each tier is its own layer so it can pass under the camera. -->
+      <svg class="row" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" style="filter:saturate(.74) brightness(1.14)">
+        <path d="M-40 560Q720 596 1480 560V900H-40Z" fill="#544c46"/>
+        <path d="M-40 555.1Q720 591.1 1480 555.1" fill="none" stroke="#14110f" stroke-opacity=".3" stroke-width="3.8"/>
+        <path d="M-40 560Q720 596 1480 560" fill="none" stroke="#c4a274" stroke-width="6"/>
+        <path d="M-40 557.8Q720 593.8 1480 557.8" fill="none" stroke="#e2c9a2" stroke-width="1.2"/>
+        <path d="M-40 562Q720 598 1480 562" fill="none" stroke="#8f7049" stroke-width="1.5"/>
+        <path d="M-40 573Q720 609 1480 573" fill="none" stroke="#9d1933" stroke-width="16" stroke-dasharray="22 4"/>
+        <path d="M-40 577.3Q720 613.3 1480 577.3" fill="none" stroke="#5c0c1c" stroke-opacity=".5" stroke-width="7.4" stroke-dasharray="22 4"/>
+        <path d="M-40 566Q720 602 1480 566" fill="none" stroke="#c25a70" stroke-width="2" stroke-dasharray="22 4"/>
+        <path d="M-40 565.1Q720 601.1 1480 565.1" fill="none" stroke="#14110f" stroke-opacity=".34" stroke-width="4.2"/>
+        <path d="M-40 582.6Q720 618.6 1480 582.6" fill="none" stroke="#14110f" stroke-opacity=".4" stroke-width="3.5"/>
+        <polygon points="551.4,573.3 581.1,573.3 564.3,603.7 530.4,603.7" fill="#6a6159"/>
+        <path d="M551.4 574.3H581.1" stroke="#8d8378" stroke-width="1.5"/>
+        <rect x="568.6" y="588.5" width="4.8" height="2" rx="1" fill="#ffe17d"/>
+        <polygon points="858.9,573.3 888.6,573.3 909.6,603.7 875.7,603.7" fill="#6a6159"/>
+        <path d="M858.9 574.3H888.6" stroke="#8d8378" stroke-width="1.5"/>
+        <rect x="866.7" y="588.5" width="4.8" height="2" rx="1" fill="#ffe17d"/>
+      </svg>
+      <svg class="row" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" style="filter:saturate(.8) brightness(1.1)">
+        <path d="M-60 588Q720 636 1500 588V900H-60Z" fill="#4e4741"/>
+        <path d="M-60 581.4Q720 629.4 1500 581.4" fill="none" stroke="#14110f" stroke-opacity=".3" stroke-width="5.3"/>
+        <path d="M-60 588Q720 636 1500 588" fill="none" stroke="#c4a274" stroke-width="8"/>
+        <path d="M-60 584.8Q720 632.8 1500 584.8" fill="none" stroke="#e2c9a2" stroke-width="1.2"/>
+        <path d="M-60 591Q720 639 1500 591" fill="none" stroke="#8f7049" stroke-width="1.6"/>
+        <path d="M-60 605Q720 653 1500 605" fill="none" stroke="#9d1933" stroke-width="22" stroke-dasharray="30 5"/>
+        <path d="M-60 610.9Q720 658.9 1500 610.9" fill="none" stroke="#5c0c1c" stroke-opacity=".5" stroke-width="10.1" stroke-dasharray="30 5"/>
+        <path d="M-60 595Q720 643 1500 595" fill="none" stroke="#c25a70" stroke-width="2" stroke-dasharray="30 5"/>
+        <path d="M-60 594.9Q720 642.9 1500 594.9" fill="none" stroke="#14110f" stroke-opacity=".34" stroke-width="5.7"/>
+        <path d="M-60 618.2Q720 666.2 1500 618.2" fill="none" stroke="#14110f" stroke-opacity=".4" stroke-width="4.8"/>
+        <polygon points="528.2,605.8 562.1,605.8 539.4,646.3 500.8,646.3" fill="#6a6159"/>
+        <path d="M528.2 606.8H562.1" stroke="#8d8378" stroke-width="1.5"/>
+        <rect x="546" y="626" width="5.4" height="2" rx="1" fill="#ffe17d"/>
+        <polygon points="877.9,605.8 911.8,605.8 939.2,646.3 900.6,646.3" fill="#6a6159"/>
+        <path d="M877.9 606.8H911.8" stroke="#8d8378" stroke-width="1.5"/>
+        <rect x="888.6" y="626" width="5.4" height="2" rx="1" fill="#ffe17d"/>
+      </svg>
+      <svg class="row" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" style="filter:saturate(.87) brightness(1.06)">
+        <path d="M-80 624Q720 690 1520 624V900H-80Z" fill="#48413c"/>
+        <path d="M-80 614.9Q720 680.9 1520 614.9" fill="none" stroke="#14110f" stroke-opacity=".3" stroke-width="7.2"/>
+        <path d="M-80 624Q720 690 1520 624" fill="none" stroke="#c4a274" stroke-width="11"/>
+        <path d="M-80 619.3Q720 685.3 1520 619.3" fill="none" stroke="#e2c9a2" stroke-width="1.3"/>
+        <path d="M-80 628.4Q720 694.4 1520 628.4" fill="none" stroke="#8f7049" stroke-width="2.2"/>
+        <path d="M-80 647.2Q720 713.2 1520 647.2" fill="none" stroke="#9d1933" stroke-width="30" stroke-dasharray="40 6"/>
+        <path d="M-80 655.4Q720 721.4 1520 655.4" fill="none" stroke="#5c0c1c" stroke-opacity=".5" stroke-width="13.8" stroke-dasharray="40 6"/>
+        <path d="M-80 633.5Q720 699.5 1520 633.5" fill="none" stroke="#c25a70" stroke-width="2.4" stroke-dasharray="40 6"/>
+        <path d="M-80 633.4Q720 699.4 1520 633.4" fill="none" stroke="#14110f" stroke-opacity=".34" stroke-width="7.8"/>
+        <path d="M-80 665.2Q720 731.2 1520 665.2" fill="none" stroke="#14110f" stroke-opacity=".4" stroke-width="6.6"/>
+        <polygon points="497.6,648.4 536.9,648.4 505.6,703.3 460.8,703.3" fill="#6a6159"/>
+        <path d="M497.6 649.4H536.9" stroke="#8d8378" stroke-width="2"/>
+        <rect x="515.7" y="675.9" width="6.3" height="2.7" rx="1" fill="#ffe17d"/>
+        <polygon points="903.1,648.4 942.4,648.4 979.2,703.3 934.4,703.3" fill="#6a6159"/>
+        <path d="M903.1 649.4H942.4" stroke="#8d8378" stroke-width="2"/>
+        <rect x="918" y="675.9" width="6.3" height="2.7" rx="1" fill="#ffe17d"/>
+      </svg>
+      <svg class="row" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true" style="filter:saturate(.94) brightness(1.03)">
+        <path d="M-100 672Q720 762 1540 672V900H-100Z" fill="#413a35"/>
+        <path d="M-100 659.5Q720 749.5 1540 659.5" fill="none" stroke="#14110f" stroke-opacity=".3" stroke-width="10.1"/>
+        <path d="M-100 672Q720 762 1540 672" fill="none" stroke="#c4a274" stroke-width="15"/>
+        <path d="M-100 665.3Q720 755.3 1540 665.3" fill="none" stroke="#e2c9a2" stroke-width="1.8"/>
+        <path d="M-100 678Q720 768 1540 678" fill="none" stroke="#8f7049" stroke-width="3"/>
+        <path d="M-100 704.2Q720 794.2 1540 704.2" fill="none" stroke="#9d1933" stroke-width="42" stroke-dasharray="56 8"/>
+        <path d="M-100 715.6Q720 805.6 1540 715.6" fill="none" stroke="#5c0c1c" stroke-opacity=".5" stroke-width="19.3" stroke-dasharray="56 8"/>
+        <path d="M-100 684.9Q720 774.9 1540 684.9" fill="none" stroke="#c25a70" stroke-width="3.4" stroke-dasharray="56 8"/>
+        <path d="M-100 685Q720 775 1540 685" fill="none" stroke="#14110f" stroke-opacity=".34" stroke-width="10.9"/>
+        <path d="M-100 729.5Q720 819.5 1540 729.5" fill="none" stroke="#14110f" stroke-opacity=".4" stroke-width="9.2"/>
+        <polygon points="456.8,704.6 503.3,704.6 459.4,780.7 406.5,780.7" fill="#6a6159"/>
+        <path d="M456.8 705.6H503.3" stroke="#8d8378" stroke-width="2.7"/>
+        <rect x="474.8" y="742.7" width="7.4" height="3.8" rx="1" fill="#ffe17d"/>
+        <polygon points="936.7,704.6 983.2,704.6 1033.5,780.7 980.6,780.7" fill="#6a6159"/>
+        <path d="M936.7 705.6H983.2" stroke="#8d8378" stroke-width="2.7"/>
+        <rect x="957.7" y="742.7" width="7.4" height="3.8" rx="1" fill="#ffe17d"/>
+      </svg>
+      <svg class="row" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <path d="M-120 736Q720 858 1560 736V900H-120Z" fill="#39332f"/>
+        <path d="M-120 718.5Q720 840.5 1560 718.5" fill="none" stroke="#14110f" stroke-opacity=".3" stroke-width="13.9"/>
+        <path d="M-120 736Q720 858 1560 736" fill="none" stroke="#c4a274" stroke-width="21"/>
+        <path d="M-120 726.3Q720 848.3 1560 726.3" fill="none" stroke="#e2c9a2" stroke-width="2.5"/>
+        <path d="M-120 744.4Q720 866.4 1560 744.4" fill="none" stroke="#8f7049" stroke-width="4.2"/>
+        <path d="M-120 780.8Q720 902.8 1560 780.8" fill="none" stroke="#9d1933" stroke-width="58" stroke-dasharray="78 10"/>
+        <path d="M-120 796.4Q720 918.4 1560 796.4" fill="none" stroke="#5c0c1c" stroke-opacity=".5" stroke-width="26.7" stroke-dasharray="78 10"/>
+        <path d="M-120 754.1Q720 876.1 1560 754.1" fill="none" stroke="#c25a70" stroke-width="4.6" stroke-dasharray="78 10"/>
+        <path d="M-120 754Q720 876 1560 754" fill="none" stroke="#14110f" stroke-opacity=".34" stroke-width="15.1"/>
+        <path d="M-120 815.5Q720 937.5 1560 815.5" fill="none" stroke="#14110f" stroke-opacity=".4" stroke-width="12.8"/>
+        <polygon points="402.4,778.3 458.5,778.3 397.3,883.2 333.4,883.2" fill="#6a6159"/>
+        <path d="M402.4 779.3H458.5" stroke="#8d8378" stroke-width="3.8"/>
+        <rect x="420.1" y="830.7" width="9" height="5.2" rx="1" fill="#ffe17d"/>
+        <polygon points="981.5,778.3 1037.6,778.3 1106.6,883.2 1042.7,883.2" fill="#6a6159"/>
+        <path d="M981.5 779.3H1037.6" stroke="#8d8378" stroke-width="3.8"/>
+        <rect x="1011" y="830.7" width="9" height="5.2" rx="1" fill="#ffe17d"/>
+      </svg>
+      <!-- Your own desk -->
+      <svg class="row" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <path d="M-140 812Q720 924 1580 812" fill="none" stroke="#14110f" stroke-opacity=".38" stroke-width="20"/>
+        <path d="M-140 826Q720 930 1580 826V1000H-140Z" fill="#c4a274"/>
+        <path d="M-140 826Q720 930 1580 826" fill="none" stroke="#e2c9a2" stroke-width="5"/>
+        <g fill="none" stroke="#a88456" stroke-opacity=".5" stroke-width="1.5"><path d="M-140 846Q720 950 1580 846"/><path d="M-140 861Q500 934 900 936"/><path d="M620 947Q1100 934 1580 868"/></g>
+        <g transform="translate(548 856) rotate(-5)">
+          <rect x="4" y="5" width="150" height="96" rx="2" fill="#14110f" opacity=".2"/>
+          <rect width="150" height="96" rx="2" fill="#fdfbf8" stroke="#dcd5cd"/>
+          <path d="M12 22H138M12 38H138M12 54H110" stroke="#dcd5cd" stroke-width="1.5"/><path d="M12 12H70" stroke="#9d1933" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(742 872) rotate(16)"><rect y="3" width="100" height="7" rx="2" fill="#14110f" opacity=".22"/><rect width="96" height="7" rx="2" fill="#ffe17d"/><polygon points="96,0 108,3.5 96,7" fill="#201e1b"/></g>
+      </svg>
+      <div class="vignette" id="vignette" aria-hidden="true"></div>
+      <div class="lights" id="lights" aria-hidden="true"></div>
+    </section>
+    <div class="board-curtain" id="board-curtain" aria-hidden="true"></div>
+
+    <div class="site-width">
     <section class="lesson-index" id="subjects" aria-labelledby="subjects-title">
       <div class="section-heading reveal">
         <h2 id="subjects-title">Choose a course</h2>
@@ -90,6 +285,7 @@
         </article>
       </div>
     </section>
+    </div>
   </main>
   <footer class="site-footer">
     <div class="site-width">

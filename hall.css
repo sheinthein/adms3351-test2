@@ -1,0 +1,191 @@
+/* The lecture hall on the home page, and the board that lesson pages open inside.
+   Paper pages keep styles.css; everything here is the dark, chalk side of the site. */
+:root { --chalk-muted: #b8bcb5; --board-rule: #444842; --cyan: #91e7e5; --frame: #7a5c3e; }
+
+/* ---------- The hall ---------- */
+.hall { position: relative; height: clamp(30rem, calc(100svh - 7.4rem), 62rem); overflow: hidden; isolation: isolate; background: var(--wash); }
+.camera { position: absolute; inset: 0; }
+.shell, .row { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.row { transform-origin: 50% 58%; }
+.lights { position: absolute; inset: 0; background: #14110f; opacity: 0; pointer-events: none; }
+/* The back of the hall sits in shade; the light is on the front wall. */
+.vignette {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(120% 78% at 50% 30%, transparent 46%, rgb(20 17 15 / .2) 78%, rgb(20 17 15 / .46)),
+    linear-gradient(to bottom, transparent 62%, rgb(20 17 15 / .22));
+}
+
+/* Sliding boards on the front wall */
+.boards {
+  position: absolute; left: 23.5%; right: 23.5%; top: 17.5%; height: 34%;
+  display: grid; grid-template-columns: 1fr minmax(0, 6.4fr) 1fr;
+  border: .55vmin solid var(--frame); border-bottom-width: 1.5vmin; border-radius: 3px;
+  background: var(--frame);
+  box-shadow: 0 1.6vmin 2.4vmin -1vmin rgb(32 30 27 / .5), 0 .3vmin .5vmin rgb(32 30 27 / .25), inset 0 1px 0 #a3835f;
+}
+.boards::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, rgb(255 253 246 / .09), transparent 38%); }
+.sideboard {
+  background: #0d0f0e; color: #9a9f98; font-family: var(--hand); font-size: clamp(.6rem, .92vw, .95rem); line-height: 1.25;
+  padding: 14% 12%; display: flex; flex-direction: column; gap: 12%; overflow: hidden; text-wrap: balance;
+}
+.sideboard.left { border-right: .4vmin solid var(--frame); }
+.sideboard.right { border-left: .4vmin solid var(--frame); }
+.sideboard span { display: block; }
+.sideboard .smudge { height: 18%; border-radius: 50%; background: radial-gradient(closest-side, rgb(245 241 231 / .1), transparent); }
+.ledge { position: absolute; left: 23.5%; right: 23.5%; top: 51.5%; height: 1.1vmin; pointer-events: none; }
+.ledge i { position: absolute; bottom: 100%; height: .7vmin; border-radius: 2px; }
+.ledge i:nth-child(1) { left: 22%; width: 2.6vmin; background: var(--chalk); }
+.ledge i:nth-child(2) { left: 26%; width: 1.8vmin; background: var(--chalk-yellow); }
+.ledge i:nth-child(3) { right: 20%; width: 5vmin; height: 1.5vmin; background: #2b2724; border-top: .45vmin solid #8d857b; }
+
+.board {
+  position: relative;
+  background:
+    radial-gradient(60% 40% at 22% 30%, rgb(245 241 231 / .045), transparent),
+    radial-gradient(50% 45% at 78% 68%, rgb(245 241 231 / .035), transparent),
+    var(--board); color: var(--chalk); container-type: size; overflow: hidden; }
+.board-content {
+  position: absolute; inset: 0; padding: 5cqh 4.5cqw 4cqh;
+  display: grid; grid-template-rows: auto auto auto 1fr; gap: 2.2cqh; align-content: start;
+}
+.board-brand { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.board .keylogo { font-size: clamp(.62rem, min(2.1cqw, 4cqh), 1.05rem); }
+.board .keylogo span {
+  width: 1.75em; height: 1.75em; border-color: var(--chalk); border-radius: .4em; background: none; color: var(--chalk);
+  font-size: 1em; box-shadow: none;
+}
+.board .keylogo .k { background: var(--accent); border-color: var(--accent); box-shadow: none; }
+.board-tag {
+  padding: .4em 1em .36em; border-radius: .45em; background: var(--chalk-yellow); color: #11130f;
+  font-weight: 750; font-size: clamp(.6rem, min(1.75cqw, 3.4cqh), .92rem); white-space: nowrap;
+}
+.board h1 {
+  font-family: var(--hand); font-weight: 400; font-size: clamp(1.2rem, min(7.4cqw, 14cqh), 4rem); line-height: 1.05; text-wrap: balance;
+}
+.board h1 .u { position: relative; display: inline-block; white-space: nowrap; color: var(--chalk-yellow); }
+.board h1 .u svg { position: absolute; left: -2%; bottom: -.14em; width: 104%; height: .2em; overflow: visible; }
+.board h1 .u path { fill: none; stroke: var(--chalk-yellow); stroke-width: 3; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; }
+.board-sub { color: var(--chalk-muted); font-size: clamp(.7rem, min(1.9cqw, 3.7cqh), 1.02rem); max-width: 60ch; }
+.board-sub a { color: var(--chalk); font-weight: 650; }
+.board-sub a:hover { color: var(--chalk-yellow); }
+
+.picks { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-self: stretch; border-top: 1px dashed var(--board-rule); }
+.picks li + li { border-left: 1px dashed var(--board-rule); }
+.picks a {
+  height: 100%; display: grid; grid-template-rows: auto auto auto; align-content: center; gap: .6cqh; padding: 2cqh 2.4cqw 0;
+  color: var(--chalk); text-decoration: none; border-radius: 4px;
+}
+.picks svg { width: auto; height: 17cqh; max-width: 100%; margin-bottom: 1.4cqh; justify-self: start; overflow: visible; transition: transform .25s cubic-bezier(.16, 1, .3, 1); }
+.picks svg * { fill: none; stroke: var(--chalk); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.picks svg .y { stroke: var(--chalk-yellow); } .picks svg .c { stroke: var(--cyan); }
+.picks svg .d { stroke-dasharray: 4 5; }
+.picks strong { font-family: var(--hand); font-weight: 400; font-size: clamp(.95rem, min(3.5cqw, 6.6cqh), 1.9rem); line-height: 1.1; }
+.picks span { color: var(--chalk-muted); font-size: clamp(.68rem, min(1.65cqw, 3.2cqh), .92rem); font-variant-numeric: tabular-nums; }
+.picks a:hover strong, .picks a:focus-visible strong { color: var(--chalk-yellow); }
+.picks a:hover svg { transform: translateY(-3px); }
+
+.hall :focus-visible { outline-color: var(--chalk-yellow); }
+.hall ::selection, .board-stage ::selection { background: var(--chalk-yellow); color: var(--ink); }
+
+/* Covers the page with board at the end of the walk, and uncovers it on the way back out. */
+.board-curtain { position: fixed; inset: 0; z-index: 30; background: var(--board); opacity: 0; visibility: hidden; pointer-events: none; }
+html[data-arrive="pull-out"] .board-curtain { opacity: 1; visibility: visible; animation: board-leave .4s .6s forwards; }
+
+/* Narrow or short windows sit nearer the front, so the writing on the board stays readable. */
+@media (max-width: 999px), (max-height: 43rem) {
+  .shell { transform: scale(1.75, 1.2); transform-origin: 50% 30%; }
+  .shell .wide-only { display: none; }
+  .boards { left: 4%; right: 4%; top: 12.5%; height: 47%; grid-template-columns: minmax(0, 1fr); }
+  .sideboard { display: none; }
+  .ledge { left: 4%; right: 4%; top: 59.5%; }
+}
+@media (max-width: 700px) {
+  .hall { height: clamp(32rem, calc(100svh - 9.5rem), 50rem); }
+  .board-content { padding: 3.5cqh 5cqw 2cqh; gap: 1.6cqh; }
+  .picks { grid-template-columns: 1fr; }
+  .picks li + li { border-left: 0; border-top: 1px dashed var(--board-rule); }
+  .picks a { grid-template-columns: 30% 1fr; grid-template-rows: 1fr 1fr; column-gap: 5cqw; padding: 1.2cqh 0; align-items: center; }
+  .picks svg { grid-row: 1 / 3; height: 9cqh; margin: 0; }
+  .picks strong { align-self: end; } .picks span { align-self: start; }
+}
+
+/* ---------- Inside the board: the top of every lesson page ---------- */
+.in-board .site-header { background: var(--board); border-bottom-color: var(--board-rule); }
+.in-board .site-header nav a { color: var(--chalk); }
+.in-board .site-header nav a:hover, .in-board .site-header nav a[aria-current] { color: var(--chalk-yellow); }
+.in-board .site-header nav a::after { background: var(--chalk-yellow); }
+.in-board .keylogo span { background: var(--board); color: var(--chalk); border-color: var(--chalk); box-shadow: 0 3px 0 #8d9089; }
+.in-board .keylogo .k { background: var(--accent); border-color: var(--accent); box-shadow: 0 3px 0 #5c0c1c; }
+.in-board .brand-tag { color: var(--chalk-muted); border-left-color: var(--board-rule); }
+.in-board .tabbar { background: #0d0f0e; border-bottom-color: var(--board-rule); }
+.in-board .tabgroup + .tabgroup { border-color: var(--board-rule); }
+.in-board .tab { color: var(--chalk); }
+.in-board .tab-label, .in-board .tab .tab-name { color: var(--chalk-muted); }
+.in-board .tab:hover, .in-board .tab[aria-current], .in-board .tab[aria-current] .tab-name { color: var(--chalk-yellow); }
+.in-board .tab::after { background: var(--chalk-yellow); }
+.in-board .site-header :focus-visible, .in-board .tabbar :focus-visible, .board-stage :focus-visible { outline-color: var(--chalk-yellow); }
+
+.board-stage {
+  position: relative; padding-bottom: 3rem; color: var(--chalk);
+  background: var(--board); box-shadow: 0 0 0 100vmax var(--board); clip-path: inset(0 -100vmax);
+}
+/* The board's bottom rail: below it the page is paper again. */
+.board-stage::after {
+  content: ""; position: absolute; left: -100vmax; right: -100vmax; bottom: 0; height: .8rem;
+  background: var(--frame); border-top: 1px solid #a3835f;
+}
+.board-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1.5rem; padding-top: 1.1rem; }
+.board-back {
+  display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; padding: .35rem .95rem;
+  border: 1.5px solid var(--chalk); border-radius: 5px; font-weight: 650; text-decoration: none;
+  transition: background-color .15s, color .15s;
+}
+.board-stage .board-back { color: var(--chalk); }
+.board-back svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.board-stage .board-back:hover { background: var(--chalk); color: #11130f; }
+.board-lessons { display: flex; flex-wrap: wrap; gap: .1rem .3rem; }
+.board-lessons a {
+  display: inline-flex; align-items: center; min-height: 2.75rem; padding: .2rem .8rem; border-bottom: 2px solid transparent;
+  font-family: var(--hand); font-size: 1.3rem; line-height: 1.1; text-decoration: none;
+}
+.board-stage .board-lessons a { color: var(--chalk-muted); }
+.board-stage .board-lessons a:hover { color: var(--chalk); }
+.board-stage .board-lessons a[aria-current] { color: var(--chalk-yellow); border-bottom-color: var(--chalk-yellow); }
+
+.board-stage a { color: var(--chalk-yellow); }
+.board-stage a:hover { color: #fff3bf; }
+.board-stage .crumbs { padding-top: .9rem; color: var(--chalk-muted); }
+.board-stage .lesson-intro h1 { font-family: var(--hand); font-weight: 400; letter-spacing: 0; line-height: 1; }
+.board-stage .course { color: var(--chalk-yellow); }
+.board-stage .course span { border-left-color: var(--board-rule); color: var(--chalk-muted); }
+.board-stage .intro-copy, .board-stage .video-meta, .board-stage .time, .board-stage .transcript-copy p { color: var(--chalk-muted); }
+.board-stage .player { border: 1px solid var(--board-rule); }
+.board-stage .video-meta strong, .board-stage .transcript-copy h2 { color: var(--chalk); }
+.board-stage .video-error { background: #171917; }
+.board-stage .lesson-sidebar { border-top: 0; background: none; padding: 0; }
+.board-stage .lesson-sidebar h2 { font-family: var(--hand); font-weight: 400; font-size: 1.5rem; line-height: 1.15; color: var(--cyan); }
+.board-stage .chapters li, .board-stage .quick-support { border-top: 1px dashed var(--board-rule); }
+.board-stage .chapters button { color: var(--chalk); }
+.board-stage .chapters button::after { background: var(--chalk-yellow); }
+.board-stage .chapters button:hover, .board-stage .chapters button[aria-current] { color: var(--chalk-yellow); }
+.board-stage .disclosure { border-block: 1px dashed var(--board-rule); }
+.board-stage .disclosure summary { color: var(--chalk-yellow); }
+.board-stage .disclosure summary:hover { color: #fff3bf; }
+
+/* Arriving at and leaving the board. The page is complete without any of this. */
+@keyframes board-arrive { from { opacity: 0; transform: scale(.97); } }
+@keyframes board-fade { from { opacity: 0; } }
+@keyframes board-leave { to { opacity: 0; } }
+@keyframes board-write { from { clip-path: inset(0 100% 0 0); opacity: .4; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
+@keyframes board-erase { to { clip-path: inset(0 0 0 100%); opacity: .4; } }
+@media (prefers-reduced-motion: no-preference) {
+  html[data-arrive="dolly"] .site-header > *, html[data-arrive="dolly"] .tabbar > * { animation: board-fade .45s .1s both; }
+  html[data-arrive="dolly"] .board-stage > * { animation: board-arrive .6s cubic-bezier(.16, 1, .3, 1) both; }
+  html[data-arrive="wipe"] .lesson-intro, html[data-arrive="wipe"] .lesson-grid { animation: board-write .38s cubic-bezier(.16, 1, .3, 1) both; }
+  html.leaving-wipe .lesson-intro, html.leaving-wipe .lesson-grid { animation: board-erase .22s ease-in forwards; }
+  html.leaving-hall .board-stage > *, html.leaving-hall .site-header > *, html.leaving-hall .tabbar > * { animation: board-leave .24s ease-in forwards; }
+}
+
+/* The board extends to the window edges with a shadow and an absolutely placed rail; clip them so they never add sideways scroll. */
+.in-board main { overflow-x: clip; }
